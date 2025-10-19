@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Oe</h1>
+    <h1>Oe tkt</h1>
     <!-- Affiche l'objet entier en JSON -->
     <pre>{{ JSON.stringify(monObjet, null, 2) }}</pre>
   </div>
