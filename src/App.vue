@@ -2,15 +2,16 @@
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 import PocDiceWarrior from './components/poc-dice-warrior.vue'
+import Game from './components/Game.vue'
 </script>
 
 <template>
   <main>
-    <PocDiceWarrior />
+    <Game />
   </main>
 </template>
 
-<style scoped>
+<!-- <style scoped>
 header {
   line-height: 1.5;
 }
@@ -37,4 +38,4 @@ header {
     flex-wrap: wrap;
   }
 }
-</style>
+</style> -->
