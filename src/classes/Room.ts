@@ -34,7 +34,9 @@ export class Room {
   // 🎲 Génération aléatoire factorisée
   generateRoom() {
     const types: RoomType[] = ['enemy', 'boss', 'heal', 'attackUp']
-    this.type = getRandomItem(types)
+
+    if(!this.type)
+      this.type = getRandomItem(types)
 
     switch (this.type) {
       case 'enemy': {
