@@ -6,15 +6,15 @@
     <div v-if="enemy">
       <p>{{ enemy.name }} — PV : {{ enemy.pv }}</p>
       <img :src="enemy.image" style="height: 400px; width: auto;"/>
-      <button @click="attackEnemy">⚔️ Attaquer</button>
+      <button @click="attackEnemy">Attaquer</button>
     </div>
 
     <div v-else>
-      <button @click="nextRoom">➡️ Passer à la salle suivante</button>
+      <button @click="nextRoom">Passer à la salle suivante</button>
     </div>
 
     <div v-if="gameOver">
-      <h2>💀 Partie terminée 💀</h2>
+      <h2>Partie terminée</h2>
       <p>Ennemis vaincus : {{ player.enemiesKilled }}</p>
       <p>Boss vaincus : {{ player.bossesKilled }}</p>
     </div>
@@ -42,7 +42,6 @@ function attackEnemy() {
     if (currentRoom.type === 'enemy') player.enemiesKilled++
     if (currentRoom.type === 'boss') player.bossesKilled++
     enemy.value = null
-    //alert("💥 Ennemi vaincu !")
     return
   }
 
@@ -52,7 +51,7 @@ function attackEnemy() {
   if (player.pv <= 0) {
     player.pv = 0
     gameOver.value = true
-    alert("💀 Tu es mort... 💀")
+    alert("YOU DIED")
   }
 }
 
@@ -66,8 +65,8 @@ function nextRoom() {
   if (newRoom.type === 'heal' || newRoom.type === 'attackUp') {
     newRoom.applyEffect(player)
     enemy.value = null
-  } else if(player.bossesKilled > 0) {
-    enemy.value.scaling(player.bossesKilled)
+  } else if (enemy.value) {
+    enemy.value.scaleWithPlayer(player)
   }
 }
 </script>

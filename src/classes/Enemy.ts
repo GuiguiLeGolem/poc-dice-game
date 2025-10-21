@@ -1,4 +1,5 @@
 import { Character } from './Character'
+import { Player } from './Player'
 
 export class Enemy extends Character {
   image: string
@@ -10,10 +11,11 @@ export class Enemy extends Character {
     this.pv = pv
   }
 
-  scaling(scale: number){
-    this.pv = this.pv * scale
-    this.dice.forEach(diceFace => {
-      diceFace = diceFace * scale
-    })
+  scaleWithPlayer(player: Player) {
+    if (player.bossesKilled === 0) return
+
+    const scaleFactor = 1 + player.bossesKilled * 0.2 // ex : +20% par boss
+    this.pv = Math.round(this.pv * scaleFactor)
+    this.dice = this.dice.map(face => Math.round(face * scaleFactor))
   }
 }
