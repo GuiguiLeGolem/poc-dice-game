@@ -9,7 +9,7 @@ on:
 jobs:
   sonarcloud:
     name: SonarCloud Analysis
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -31,7 +31,7 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@v3
         with:
           args: >
-            -Dsonar.projectKey=GuiguiLeGolem_poc-dice-game
+            -Dsonar.projectKey=guiguilegolem_poc-dice-game
             -Dsonar.organization=guiguilegolem
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
