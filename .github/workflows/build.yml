@@ -30,7 +30,7 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@v3
         with:
           args: >
-            -Dsonar.projectKey=guiguilegolem_poc-dice-game
+            -Dsonar.projectKey=GuiguiLeGolem_poc-dice-game
             -Dsonar.organization=guiguilegolem
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
